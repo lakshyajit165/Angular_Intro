@@ -1,23 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-test',
   template: `
     
-    <div *ngFor="let color of colors; index as i">
-      <h2>{{ i }}{{ color }}</h2>
-    </div>
+   <h2>{{"Hello " + name}}</h2>
+   <button (click)="fireEvent()">Send Event</button>
 
   `,
   styles: []
 })
 export class TestComponent implements OnInit {
 
-  public colors = ["red", "blue", "green", "yellow"];
-  constructor() { }
+ @Input('parentData') public name;
+ 
+ @Output() public childEvent = new EventEmitter();
+
+ constructor() { }
 
   ngOnInit() {
   }
 
+  fireEvent(){
+    this.childEvent.emit("Hey LK!");
+  }
 
 }
