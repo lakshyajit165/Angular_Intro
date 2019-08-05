@@ -3,21 +3,21 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-test',
   template: `
-    <h2 *ngIf="displayName; else elseBlock">
-      Angular Learning
-    </h2>
+    
+    <div [ngSwitch]="color">
+      <div *ngSwitchCase="'red'">You picked red color</div>
+      <div *ngSwitchCase="'blue'">You picked blue color</div>
+      <div *ngSwitchCase="'green'">You picked green color</div>
+      <div *ngSwitchDefault>Pick Again</div>
+      
+    </div>
 
-    <ng-template #elseBlock>
-      <h2>
-        Name is hidden
-      </h2>
-    </ng-template>
   `,
   styles: []
 })
 export class TestComponent implements OnInit {
 
-  displayName = false;
+  public color = "red";
   constructor() { }
 
   ngOnInit() {
