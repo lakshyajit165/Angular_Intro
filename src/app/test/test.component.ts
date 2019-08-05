@@ -6,34 +6,23 @@ import { Component, OnInit } from '@angular/core';
     <h2>
       Welcome {{ name }}
     </h2>
-    <h2 class="text-success">Angular Learning</h2>
-    <h2 [class]="successClass">Angular Learning</h2>
-    <h2 [class.text-danger]="hasError">Angular Learning</h2>
-    <h2 [ngClass]="messageClasses">Angular Learning</h2>
+    <h2 [style.color]="hasError ? 'red' : 'green'">Style binding</h2>
+    <h2 [style.color]="highlightColor">Style binding 2</h2>
+    <h2 [ngStyle]="titleStyles">Style binding 3</h2>
     `,
-  styles: [`
-  .text-success {
-    color: green;
-  }
-  .text-danger {
-    color: red;
-  }
-  .text-special {
-    font-style: italic;
-  }
-  `]
+  styles: []
 })
 export class TestComponent implements OnInit {
 
   public name = "Elkay";
-  public myId = "testId";
-  public successClass = "text-success";
-  public hasError = true;
+ 
+  public hasError = false;
   public isSpecial = true;
-  public messageClasses = {
-    "text-success": !this.hasError,
-    "text-danger": this.hasError,
-    "text-special": this.isSpecial
+  public highlightColor = "orange";
+
+  public titleStyles = {
+    color: "blue",
+    fontStyle: "italic"
   }
   constructor() { }
 
