@@ -6,27 +6,25 @@ import { Component, OnInit } from '@angular/core';
     <h2>
       Welcome {{ name }}
     </h2>
-    <h2 [style.color]="hasError ? 'red' : 'green'">Style binding</h2>
-    <h2 [style.color]="highlightColor">Style binding 2</h2>
-    <h2 [ngStyle]="titleStyles">Style binding 3</h2>
+    <button (click)="onClick($event)">Greet</button>
+    <button (click)="greeting='Welcome Elkay'">Greet 2</button>
+    <p>{{greeting}}</p>
     `,
   styles: []
 })
 export class TestComponent implements OnInit {
 
   public name = "Elkay";
- 
-  public hasError = false;
-  public isSpecial = true;
-  public highlightColor = "orange";
+  public greeting = "";
 
-  public titleStyles = {
-    color: "blue",
-    fontStyle: "italic"
-  }
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClick(event){
+    console.log(event);
+    this.greeting = "Welcome";
   }
 
   greetUser(){
