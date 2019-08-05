@@ -1,5 +1,7 @@
 <div>
+    
     <h1>Employee Details</h1>
+    <p>{{ errorMsg }}</p>
     <ul *ngFor="let emp of employees">
         <li>{{emp.id}} - {{emp.name}} - {{emp.age}}</li>
     </ul>
